@@ -6,6 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 	entry: './src/index.tsx',
+	devtool: 'inline-source-map',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js'
@@ -16,6 +17,22 @@ module.exports = {
 				test: /\.tsx$/,
 				exclude: /node_modules/,
 				use: 'ts-loader'
+			},
+			{
+				test: /\.css$/,
+				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+			},
+			// {
+			// 	test: /\.(png|jpg)$/,
+			// 	use: [{ loader: 'url-loader' }]
+			// },
+			// {
+			// 	test: /\.(png|jpe?g|svg|gif)$/i,
+			// 	use: [{ loader: 'file-loader' }]
+			// }
+			{
+				test: /\.(png|jpg|jpeg|gif|svg)$/i,
+				type: 'asset/resource'
 			}
 		]
 	},

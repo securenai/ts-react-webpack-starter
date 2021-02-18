@@ -5,6 +5,9 @@
         "watch": true,
         "target": "es5",
         "lib": ["es6","dom"],
-        "esModuleInterop": true
-    }
+        "esModuleInterop": true,
+        "sourceMap": true,
+        // "typeRoots" : ["node_modules/@types", "src/types"]
+    },
+    // "include": ["src/custom.d.ts"]
 }
